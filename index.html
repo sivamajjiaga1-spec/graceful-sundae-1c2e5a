@@ -1,0 +1,1330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100810">
+<title>For Yasaswini ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: #fff0f5;
+  background:
+    radial-gradient(ellipse at top, #512037, transparent 60%),
+    linear-gradient(145deg, #080609, #24101e, #100810);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+button {
+  border: 1px solid #f5b7c9;
+  background: linear-gradient(135deg, #9c2855, #e46b91);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: inherit;
+  margin: 8px;
+  transition: .3s;
+  max-width: 100%;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 25px #ef8bab77;
+}
+
+.secondary {
+  background: #ffffff12;
+}
+
+.page {
+  display: none;
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  width: 100%;
+  padding: 35px 18px 60px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.page.active {
+  display: flex;
+  animation: fadeIn 1s ease;
+}
+
+.card {
+  width: 100%;
+  max-width: 760px;
+  padding: 38px 22px;
+  border: 1px solid #eeb2c555;
+  border-radius: 25px;
+  background: #ffffff0b;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 45px #ec78a51c;
+}
+
+h1 {
+  color: #ffc3d6;
+  font-size: clamp(38px, 8vw, 65px);
+  line-height: 1.2;
+  margin: 20px 0;
+  text-shadow: 0 0 25px #ff80b0aa;
+}
+
+h2 {
+  color: #ffc4d7;
+  font-size: clamp(27px, 6vw, 40px);
+  margin-bottom: 18px;
+}
+
+h3 {
+  color: #ffc5d8;
+  margin: 15px 0;
+}
+
+p {
+  color: #f6dce5;
+  font-size: 17px;
+  line-height: 1.9;
+  overflow-wrap: break-word;
+}
+
+.small {
+  color: #dca9bb;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.heart {
+  font-size: 58px;
+  animation: heartbeat 1.5s infinite;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.time-box {
+  background: #ffffff12;
+  border: 1px solid #f1aec455;
+  border-radius: 15px;
+  padding: 17px 10px;
+  min-width: 76px;
+}
+
+.time-box span {
+  display: block;
+  color: #ffc3d6;
+  font-size: 32px;
+}
+
+.time-box small {
+  color: #e7b4c4;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.menu button {
+  min-height: 68px;
+  margin: 0;
+  width: 100%;
+}
+
+.letter {
+  display: none;
+  text-align: left;
+  background: #ffffff0c;
+  padding: 25px;
+  border-radius: 18px;
+  margin: 20px 0;
+  line-height: 2;
+  border: 1px solid #eeb2c533;
+}
+
+.gift {
+  font-size: 95px;
+  cursor: pointer;
+  display: inline-block;
+  animation: heartbeat 1.5s infinite;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.memory-card {
+  background: #ffffff0c;
+  border: 1px solid #f5b7c955;
+  border-radius: 18px;
+  padding: 10px;
+  transition: .4s;
+  min-width: 0;
+}
+
+.memory-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px #ed8cac44;
+}
+
+.memory-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.memory-card p {
+  font-size: 14px;
+  color: #ffc4d7;
+  margin-top: 10px;
+}
+
+/* CINEMATIC INTRO */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(circle, #24101f, #050305 75%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: opacity 1.5s ease;
+}
+
+#intro.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-line {
+  opacity: 0;
+  animation: cinematicText 2s ease forwards;
+}
+
+.intro-name {
+  font-size: clamp(45px, 10vw, 85px);
+  color: #ffbad1;
+  text-shadow: 0 0 15px #ed75a5, 0 0 45px #e75c9b;
+  animation: nameGlow 3s infinite alternate;
+  margin: 25px 0;
+}
+
+.intro-subtitle {
+  animation-delay: 2s;
+}
+
+#beginButton {
+  opacity: 0;
+  animation: cinematicText 2s ease 3.5s forwards;
+  margin-top: 30px;
+}
+
+/* FINAL PHOTO FRAME */
+
+.final-photo {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: 560px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 22px;
+  border: 3px solid #ffc3d6;
+  box-shadow: 0 0 35px #f080aa88;
+  margin: 25px auto;
+  animation: cinematicZoom 10s ease-in-out forwards;
+}
+
+@keyframes cinematicZoom {
+  0% {
+    opacity: 0;
+    transform: scale(.88);
+    filter: brightness(.5);
+  }
+  30% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  100% {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+  }
+}
+
+/* PHOTO VIEWER */
+
+#photoModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #100711ee;
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#photoModal img {
+  max-width: 90vw;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+#photoModal button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+/* FIREWORKS */
+
+#fireworksCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* FLOATING PETALS */
+
+.petal,
+.cinematic-petal {
+  position: fixed;
+  top: -40px;
+  pointer-events: none;
+  z-index: 5;
+  animation: cinematicFall linear forwards;
+}
+
+@keyframes cinematicFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+/* ANIMATIONS */
+
+@keyframes cinematicText {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nameGlow {
+  from {
+    text-shadow: 0 0 10px #ec79a4;
+  }
+  to {
+    text-shadow: 0 0 35px #ff70ad, 0 0 65px #ff70ad;
+  }
+}
+
+@keyframes heartbeat {
+  50% {
+    transform: scale(1.13);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TABLET */
+
+@media screen and (max-width: 768px) {
+  .page {
+    padding: 22px 14px 40px;
+  }
+
+  .card {
+    max-width: 600px;
+    padding: 28px 18px;
+  }
+
+  h1 {
+    font-size: clamp(34px, 8vw, 52px);
+  }
+
+  .final-photo {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .memory-card img {
+    height: 190px;
+  }
+}
+
+/* MOBILE */
+
+@media screen and (max-width: 480px) {
+  .page {
+    width: 100%;
+    min-height: 100svh;
+    padding: 16px 10px 30px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 25px 14px;
+    border-radius: 19px;
+  }
+
+  h1 {
+    font-size: clamp(30px, 9vw, 43px);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: clamp(23px, 6vw, 31px);
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .small {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+  }
+
+  .heart {
+    font-size: 48px;
+  }
+
+  .countdown {
+    gap: 7px;
+    margin: 22px 0;
+  }
+
+  .time-box {
+    min-width: 60px;
+    padding: 12px 6px;
+  }
+
+  .time-box span {
+    font-size: 25px;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    gap: 11px;
+  }
+
+  .menu button {
+    min-height: 54px;
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 13px 19px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .memory-card {
+    padding: 7px;
+  }
+
+  .memory-card img {
+    height: 175px;
+  }
+
+  .memory-card p {
+    font-size: 12px;
+  }
+
+  .final-photo {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin: 20px auto;
+  }
+
+  .letter {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+  .intro-name {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  #beginButton {
+    margin-top: 25px;
+  }
+}
+
+/* SMALL PHONES */
+
+@media screen and (max-width: 360px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-card img {
+    height: auto;
+    max-height: 350px;
+  }
+
+  .time-box {
+    min-width: 55px;
+  }
+
+  .final-photo {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+
+/* MOBILE FINAL SURPRISE: keep photo and message visible together */
+@media screen and (max-width: 480px) {
+  #finalPage.page.active {
+    height: 100svh;
+    min-height: 100svh;
+    padding: 5px 8px;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  #finalPage .card {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 10px;
+    border-radius: 15px;
+  }
+
+  #finalReveal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  #finalReveal > .heart,
+  #finalReveal > p.small {
+    display: none;
+  }
+
+  #finalReveal > h1 {
+    font-size: clamp(22px, 6vw, 28px);
+    line-height: 1.1;
+    margin: 2px 0 4px;
+  }
+
+  #finalReveal .final-photo {
+    display: block;
+    width: auto;
+    height: clamp(105px, 27svh, 135px);
+    max-width: min(42vw, 125px);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center;
+    margin: 2px auto 5px;
+    border-radius: 13px;
+    animation: none;
+  }
+
+  #finalReveal h2 {
+    font-size: clamp(17px, 4.8vw, 20px);
+    line-height: 1.15;
+    margin: 2px 0 5px;
+  }
+
+  #finalMessage {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  #finalReveal button {
+    display: inline-block;
+    margin: 5px 2px 0;
+    padding: 8px 10px;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- CINEMATIC OPENING -->
+
+<div id="intro">
+  <p class="small intro-line">A STORY MADE WITH LOVE</p>
+  <h1 class="intro-name">Yasaswini ❤️</h1>
+  <p class="intro-line intro-subtitle">
+    Some people make life more beautiful...
+  </p>
+  <button id="beginButton" onclick="startExperience()">
+    Begin Your Story ❤️
+  </button>
+</div>
+
+
+<!-- COUNTDOWN -->
+
+<section id="countdownPage" class="page active">
+  <div class="card">
+    <div class="heart">❤️</div>
+    <p class="small">A SPECIAL MOMENT IS WAITING</p>
+    <h1>Yasaswini</h1>
+    <p>Every beautiful moment deserves a beautiful beginning...</p>
+
+    <div class="countdown">
+      <div class="time-box">
+        <span id="days">00</span><small>Days</small>
+      </div>
+      <div class="time-box">
+        <span id="hours">00</span><small>Hours</small>
+      </div>
+      <div class="time-box">
+        <span id="minutes">00</span><small>Minutes</small>
+      </div>
+      <div class="time-box">
+        <span id="seconds">00</span><small>Seconds</small>
+      </div>
+    </div>
+
+    <p id="countText">Counting down to your special moment...</p>
+
+    <button id="enterBtn" style="display:none"
+      onclick="showPage('homePage'); fireworks()">
+      Open Your Birthday Surprise ❤️
+    </button>
+
+    <p class="small" style="margin-top:25px">
+      Made with love, just for you.
+    </p>
+  </div>
+</section>
+
+
+<!-- HOME -->
+
+<section id="homePage" class="page">
+  <div class="card">
+    <div class="heart">💖</div>
+    <p class="small">TODAY IS ALL ABOUT YOU</p>
+    <h1>Happy Birthday!</h1>
+    <h2>Yasaswini ❤️</h2>
+    <p>
+      I have created a little world of surprises for you.
+      Explore everything and enjoy every moment.
+    </p>
+
+    <div class="menu">
+      <button onclick="showPage('questionPage')">
+        💗 Do you know how special you are?
+      </button>
+      <button onclick="showPage('letterPage')">
+        💌 Open My Letter
+      </button>
+      <button onclick="showPage('giftPage')">
+        🎁 Unlock Surprise
+      </button>
+      <button onclick="showPage('memoriesPage')">
+        📸 Memories
+      </button>
+      <button onclick="showPage('wishPage')">
+        ✨ Make a Wish
+      </button>
+      <button onclick="openFinalSurprise()">
+        ❤️ One Last Surprise
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- SPECIAL QUESTION -->
+
+<section id="questionPage" class="page">
+  <div class="card">
+    <div class="heart">🥰</div>
+    <h2>Do you know how special you are?</h2>
+    <p>There is something I have always wanted you to know...</p>
+
+    <button onclick="revealSpecial()">Tell me ❤️</button>
+
+    <div id="specialMessage" style="display:none;margin-top:25px">
+      <h2>You are one of a kind!</h2>
+      <p>
+        Your smile can make an ordinary day beautiful.
+        Your presence makes moments more meaningful.
+        You deserve to feel loved and appreciated every day.
+        <br><br>
+        Never forget how special you are. ❤️
+      </p>
+    </div>
+
+    <button class="secondary" onclick="showPage('homePage')">Back</button>
+  </div>
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section id="letterPage" class="page">
+  <div class="card">
+    <div class="heart">💌</div>
+    <h2>A Letter For You</h2>
+    <p>Something from my heart...</p>
+
+    <button onclick="openLetter()">Open My Letter</button>
+
+    <div id="letterContent" class="letter">
+      <h3>Dear Yasaswini, ❤️</h3>
+      If I could wish for one thing today, it would be to see you
+      smiling happily. Even though there are miles between us,
+      you are never far from my thoughts.
+
+      <br><br>
+      I miss our little conversations, the random moments, the
+      laughter and all those simple things that once made ordinary
+      days special.
+
+      <br><br>
+      Life hasn't always gone the way we imagined. We've had our
+      difficult moments too, but I don't want those moments to
+      take away the value of all the beautiful memories we share.
+
+      <br><br>
+      I just want you to know that you are special to me. I
+      genuinely wish you happiness, peace, success and all the
+      beautiful things life has to offer.
+
+      <br><br>
+      No matter how far I am today, a part of my heart is wishing
+      I could be there to celebrate with you.
+
+      <br><br>
+      Keep smiling, SIYA. You deserve all the happiness in
+      the world.
+
+      <br><br>
+      Happy Birthday, once again. ❤️
+      <h3>With love, always. ❤️</h3>
+    </div>
+
+    <button class="secondary" onclick="showPage('homePage')">Back</button>
+  </div>
+</section>
+
+
+<!-- GIFT -->
+
+<section id="giftPage" class="page">
+  <div class="card">
+    <h2>A Little Gift For You 🎁</h2>
+    <p>Something is hidden inside this box...</p>
+
+    <div class="gift" onclick="openGift()">🎁</div>
+
+    <div id="giftContent" style="display:none">
+      <div class="heart">💝</div>
+      <h2>Your gift is a promise...</h2>
+      <p>
+        I hope your days are always filled with smiles,
+        your dreams find their way to reality,
+        and life gives you countless reasons to be happy.
+        <br><br>
+        You deserve beautiful things. ❤️
+      </p>
+    </div>
+
+    <button class="secondary" onclick="showPage('homePage')">Back</button>
+  </div>
+</section>
+
+
+<!-- MEMORIES -->
+
+<section id="memoriesPage" class="page">
+  <div class="card">
+    <div class="heart">📸</div>
+    <h2>Our Beautiful Memories</h2>
+    <p>Every picture has a story. Click to see it bigger.</p>
+
+    <div class="gallery">
+      <div class="memory-card">
+        <img src="photos/photo1.JPG"
+          alt="Our first memory"
+          onclick="viewPhoto(this.src)">
+        <p>One beautiful moment ❤️</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo2.JPG"
+          alt="Our favourite memory"
+          onclick="viewPhoto(this.src)">
+        <p>A memory worth keeping 🌹</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo3.JPG"
+          alt="A special memory"
+          onclick="viewPhoto(this.src)">
+        <p>Happiness looks like this ✨</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo4.JPG" alt="Another beautiful memory"
+          onclick="viewPhoto(this.src)">
+        <p>Another beautiful moment ❤️</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo5.JPG" alt="A special moment"
+          onclick="viewPhoto(this.src)">
+        <p>Moments I cherish 🌹</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo6.JPG" alt="A lovely memory"
+          onclick="viewPhoto(this.src)">
+        <p>Happiness in little things ✨</p>
+      </div>
+
+      <div class="memory-card">
+        <img src="photos/photo7.JPG" alt="A favourite memory"
+          onclick="viewPhoto(this.src)">
+        <p>A memory to keep forever 💗</p>
+      </div>
+    </div>
+
+    <p>Some moments become memories. Some memories become treasures. ❤️</p>
+    <button class="secondary" onclick="showPage('homePage')">Back</button>
+  </div>
+</section>
+
+
+<!-- PHOTO VIEWER -->
+
+<div id="photoModal" onclick="closePhoto()">
+  <button onclick="closePhoto()">Close ✕</button>
+  <img id="largePhoto" alt="Memory photo">
+</div>
+
+
+<!-- MAKE A WISH -->
+
+<section id="wishPage" class="page">
+  <div class="card">
+    <div class="heart">✨</div>
+    <h2>Make A Birthday Wish</h2>
+    <p>
+      Close your eyes, think of something beautiful
+      and make a wish from your heart.
+    </p>
+
+    <button onclick="makeWish()">I Made My Wish ✨</button>
+
+    <div id="wishMessage" style="display:none;margin-top:25px">
+      <h2>May it come true! ❤️</h2>
+      <p>
+        May this year bring you closer to everything
+        you dream about. Keep believing in yourself.
+        Beautiful things are waiting for you.
+      </p>
+    </div>
+
+    <button class="secondary" onclick="showPage('homePage')">Back</button>
+  </div>
+</section>
+
+
+<!-- FINAL SURPRISE -->
+
+<section id="finalPage" class="page">
+  <div class="card">
+
+    <div id="finalOpening">
+      <div class="heart">💖</div>
+      <p class="small">ONE LAST SURPRISE</p>
+      <h1>Wait, Yasaswini...</h1>
+      <p>
+        This last surprise is especially for you.
+        <br>Ready to see it?
+      </p>
+
+      <button onclick="revealFinal()">
+        Reveal My Surprise ❤️
+      </button>
+    </div>
+
+    <div id="finalReveal" style="display:none">
+      <div class="heart">❤️</div>
+      <p class="small">MADE WITH LOVE, JUST FOR YOU</p>
+      <h1>Happy Birthday!</h1>
+
+      <img class="final-photo"
+        src="photos/yasaswini.JPG"
+        alt="Yasaswini's birthday photo">
+
+      <h2>To My Special Person ❤️</h2>
+      <p id="finalMessage"></p>
+
+      <div class="heart" style="margin-top:20px">💖</div>
+      <p class="small">With love, always.</p>
+
+      <button onclick="celebrateAgain()">Celebrate Again 🎉</button>
+      <button class="secondary" onclick="showPage('homePage')">
+        Explore Again
+      </button>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- MUSIC: FINAL SURPRISE ONLY -->
+
+<audio id="music" loop preload="auto">
+  <source src="our-song.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+// BIRTHDAY: NOVEMBER 21, 2026 AT MIDNIGHT IST
+
+const targetDate = Date.now() + 10000;
+
+
+// CINEMATIC INTRO
+
+function startExperience() {
+  const intro = document.getElementById("intro");
+  intro.classList.add("hide");
+
+  setTimeout(() => {
+    intro.style.display = "none";
+    showPage("countdownPage");
+  }, 1500);
+}
+
+
+// COUNTDOWN
+
+function updateCountdown() {
+  const distance = targetDate - Date.now();
+
+  if (distance <= 0) {
+    document.getElementById("days").textContent = "00";
+    document.getElementById("hours").textContent = "00";
+    document.getElementById("minutes").textContent = "00";
+    document.getElementById("seconds").textContent = "00";
+
+    document.getElementById("countText").textContent =
+      "The special moment has arrived! ❤️";
+
+    document.getElementById("enterBtn").style.display =
+      "inline-block";
+    return;
+  }
+
+  document.getElementById("days").textContent =
+    String(Math.floor(distance / 86400000)).padStart(2,"0");
+
+  document.getElementById("hours").textContent =
+    String(Math.floor(distance / 3600000) % 24).padStart(2,"0");
+
+  document.getElementById("minutes").textContent =
+    String(Math.floor(distance / 60000) % 60).padStart(2,"0");
+
+  document.getElementById("seconds").textContent =
+    String(Math.floor(distance / 1000) % 60).padStart(2,"0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// NAVIGATION
+
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0, 0);
+
+  if (id !== "finalPage") {
+    document.getElementById("music").pause();
+  }
+}
+
+
+// QUESTION
+
+function revealSpecial() {
+  document.getElementById("specialMessage").style.display = "block";
+  fireworks();
+}
+
+
+// LETTER
+
+function openLetter() {
+  document.getElementById("letterContent").style.display = "block";
+}
+
+
+// GIFT
+
+function openGift() {
+  document.getElementById("giftContent").style.display = "block";
+  fireworks();
+}
+
+
+// PHOTO VIEWER
+
+function viewPhoto(src) {
+  document.getElementById("largePhoto").src = src;
+  document.getElementById("photoModal").style.display = "flex";
+}
+
+function closePhoto() {
+  document.getElementById("photoModal").style.display = "none";
+}
+
+
+// WISH
+
+function makeWish() {
+  document.getElementById("wishMessage").style.display = "block";
+  fireworks();
+}
+
+
+// FLOATING ROSES
+
+function createPetal() {
+  const petal = document.createElement("div");
+
+  petal.className = "petal";
+  petal.textContent = Math.random() > .5 ? "🌹" : "💗";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = (4 + Math.random() * 5) + "s";
+  petal.style.fontSize = (15 + Math.random() * 20) + "px";
+
+  document.body.appendChild(petal);
+  setTimeout(() => petal.remove(), 9000);
+}
+
+setInterval(createPetal, 1000);
+
+
+// CINEMATIC PETALS
+
+function cinematicPetals() {
+  let count = 0;
+
+  const interval = setInterval(() => {
+    const petal = document.createElement("div");
+
+    petal.className = "cinematic-petal";
+    petal.textContent = Math.random() > .5 ? "🌹" : "🌸";
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (18 + Math.random() * 22) + "px";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 10000);
+
+    count++;
+    if (count >= 30) clearInterval(interval);
+  }, 250);
+}
+
+
+// FINAL SURPRISE AND MUSIC
+
+async function openFinalSurprise() {
+  showPage("finalPage");
+
+  document.getElementById("finalOpening").style.display = "block";
+  document.getElementById("finalReveal").style.display = "none";
+
+  const music = document.getElementById("music");
+
+  try {
+    music.currentTime = 0;
+    await music.play();
+  } catch(error) {
+    console.log("Music could not play. Check that our-song.mp3 is beside index.html");
+  }
+
+  launchFireworks();
+}
+
+
+// FINAL PHOTO REVEAL
+
+function revealFinal() {
+  document.getElementById("finalOpening").style.display = "none";
+  document.getElementById("finalReveal").style.display = "flex";
+
+  const photo = document.querySelector(".final-photo");
+
+  photo.style.animation = "none";
+  void photo.offsetWidth;
+  photo.style.animation = "cinematicZoom 10s ease-in-out forwards";
+
+  fireworks();
+  launchFireworks();
+  cinematicPetals();
+  typeMessage();
+
+  window.scrollTo(0, 0);
+}
+
+
+// TYPING MESSAGE
+
+const message =
+  "Even with miles between us, you are never far from my thoughts. I miss our little conversations, random moments and laughter. " +
+  "Life hasn't always been easy, but I will always value the beautiful memories we share. " +
+  "You are special to me, and I wish you happiness, peace and every beautiful thing life has to offer. " +
+  "I wish I could be there to celebrate with you. Keep smiling, SIYA. You deserve all the happiness in the world. ❤️";
+
+let typingTimer;
+
+function typeMessage() {
+  const element = document.getElementById("finalMessage");
+  clearInterval(typingTimer);
+  element.textContent = "";
+
+  let i = 0;
+
+  typingTimer = setInterval(() => {
+    element.textContent += message.charAt(i);
+    i++;
+
+    if (i >= message.length) {
+      clearInterval(typingTimer);
+    }
+  }, 24);
+}
+
+
+// FIREWORKS ENGINE
+
+let fireworksStopTimer;
+let fireworksFrame = null;
+let fireworksRunning = false;
+let rocketInterval = null;
+
+function launchFireworks() {
+  const canvas = document.getElementById("fireworksCanvas");
+  const ctx = canvas.getContext("2d");
+
+  if (fireworksRunning) {
+    clearTimeout(fireworksStopTimer);
+    clearInterval(rocketInterval);
+    if (fireworksFrame !== null) cancelAnimationFrame(fireworksFrame);
+  }
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  let rockets = [];
+  fireworksRunning = true;
+
+  function createRocket() {
+    rockets.push({
+      x: Math.random() * canvas.width,
+      y: canvas.height,
+      targetY: Math.random() * canvas.height * .45 + 50,
+      speed: 7 + Math.random() * 3,
+      hue: Math.random() * 360
+    });
+  }
+
+  function explode(x, y, hue) {
+    for (let i = 0; i < 65; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 5 + 1;
+
+      particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        alpha: 1,
+        hue
+      });
+    }
+  }
+
+  function animate() {
+    if (!fireworksRunning) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    rockets.forEach((rocket, index) => {
+      rocket.y -= rocket.speed;
+
+      ctx.fillStyle = `hsl(${rocket.hue},100%,70%)`;
+      ctx.beginPath();
+      ctx.arc(rocket.x, rocket.y, 3, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (rocket.y <= rocket.targetY) {
+        explode(rocket.x, rocket.y, rocket.hue);
+        rockets.splice(index, 1);
+      }
+    });
+
+    particles.forEach((p, index) => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += .035;
+      p.alpha -= .012;
+
+      ctx.globalAlpha = Math.max(0, p.alpha);
+      ctx.fillStyle = `hsl(${p.hue},100%,70%)`;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      if (p.alpha <= 0) particles.splice(index, 1);
+    });
+
+    ctx.globalAlpha = 1;
+    fireworksFrame = requestAnimationFrame(animate);
+  }
+
+  rocketInterval = setInterval(createRocket, 450);
+  animate();
+
+  fireworksStopTimer = setTimeout(() => {
+    fireworksRunning = false;
+    clearInterval(rocketInterval);
+    if (fireworksFrame !== null) cancelAnimationFrame(fireworksFrame);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }, 12000);
+}
+
+
+// SMALL CELEBRATION
+
+function fireworks() {
+  const symbols = ["🎉", "💖", "✨", "❤️", "🌹"];
+
+  for (let i = 0; i < 30; i++) {
+    const item = document.createElement("div");
+
+    item.className = "petal";
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.top = Math.random() * 50 + "vh";
+    item.style.animationDuration = (2 + Math.random() * 3) + "s";
+    item.style.fontSize = "25px";
+
+    document.body.appendChild(item);
+    setTimeout(() => item.remove(), 5000);
+  }
+}
+
+
+// CELEBRATE AGAIN
+
+function celebrateAgain() {
+  fireworks();
+  launchFireworks();
+  cinematicPetals();
+}
+
+</script>
+
+</body>
+</html>
