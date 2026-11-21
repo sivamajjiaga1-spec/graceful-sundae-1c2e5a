@@ -965,7 +965,7 @@ p {
 <!-- MUSIC: FINAL SURPRISE ONLY -->
 
 <audio id="music" loop preload="auto">
-  <source src="our-song.mp3" type="audio/mpeg">
+  <source src="music/our-song.mp3" type="audio/mpeg">
 </audio>
 
 
@@ -1139,7 +1139,7 @@ async function openFinalSurprise() {
     music.currentTime = 0;
     await music.play();
   } catch(error) {
-    console.log("Music could not play. Check that our-song.mp3 is beside index.html");
+    console.log("Music could not play. Check that music/our-song.mp3 is available");
   }
 
   launchFireworks();
